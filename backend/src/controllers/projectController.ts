@@ -8,6 +8,6 @@ export const getProjects = async (req: Request, res: Response): Promise<void> =>
     const projects = await prisma.project.findMany();
     res.status(200).json(projects);
   } catch (error) {
-    res.status(500).json({ error: 'An error occurred while fetching projects' });
+    res.status(500).json({ message: 'An error occurred while fetching projects' });
   }
 };
