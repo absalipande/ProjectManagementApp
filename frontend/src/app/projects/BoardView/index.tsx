@@ -56,7 +56,7 @@ const BoardView = ({ id, setIsModalNewTaskOpen }: BoardProps) => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="">
+      <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 xl:grid-cols-4">
         {taskStatus.map((status) => (
           <TaskColumn
             key={status}
@@ -110,7 +110,7 @@ const TaskColumn = ({
           <h3 className="flex items-center text-lg font-semibold dark:text-white">
             {status}{" "}
             <span
-              className="ml-2 inline-block rounded-full bg-gray-200 p-1 text-center text-sm leading-none dark:bg-dark-tertiary"
+              className="ml-2 inline-block rounded-full bg-gray-300 p-1 text-center text-sm leading-none dark:bg-dark-tertiary"
               style={{ width: "1.5rem", height: "1.5rem" }}
             >
               {tasksCount}
@@ -204,7 +204,7 @@ const Task = ({ task }: TaskProps) => {
               {taskTagsSplit.map((tag) => (
                 <div
                   key={tag}
-                  className="bg-blue rounded-full px-2 py-1 text-xs"
+                  className="rounded-full bg-blue-100 px-2 py-1 text-sm"
                 >
                   {" "}
                   {tag}
@@ -234,7 +234,38 @@ const Task = ({ task }: TaskProps) => {
           {task.description}
         </p>
         <div className="mt-4 border-t border-gray-200 dark:border-stroke-dark" />
-        
+
+        {/* Users */}
+        <div className="mt-3 flex items-center justify-between">
+          <div className="flex -space-x-[6px] overflow-hidden">
+            {task.assignee && (
+              <Image
+                src={`/${task.assignee.profilePictureUrl!}`}
+                key={task.assignee.userId}
+                alt={task.assignee.username}
+                width={30}
+                height={30}
+                className="h-8 w-8 rounded-full border-2 border-white object-cover dark:border-dark-secondary"
+              />
+            )}
+            {task.author && (
+              <Image
+                src={`/${task.author.profilePictureUrl!}`}
+                key={task.author.userId}
+                alt={task.author.username}
+                width={30}
+                height={30}
+                className="h-8 w-8 rounded-full border-2 border-white object-cover dark:border-dark-secondary"
+              />
+            )}
+          </div>
+          <div className="flex items-center text-gray-500 dark:text-neutral-500">
+            <MessageSquareMore size={20} />
+            <span className="text--sm ml-1 dark:text-neutral-400">
+              {numberOfComments}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );
