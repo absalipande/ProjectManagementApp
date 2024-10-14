@@ -52,7 +52,12 @@ const BoardView = ({ id, setIsModalNewTaskOpen }: BoardProps) => {
       </div>
     );
 
-  if (error) return <div>An error occured while fething tasks</div>;
+  if (error)
+    return (
+      <div className="py-4 text-center font-semibold text-red-500">
+        An error occurred while fetching tasks
+      </div>
+    );
 
   return (
     <DndProvider backend={HTML5Backend}>
