@@ -18,3 +18,26 @@ body,
   @apply bg-white;
   @apply dark:bg-black;
 }
+
+/* Default Light Theme Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3; /* Light theme thumb color */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e6e6e6; /* Light theme track color */
+}
+
+/* Dark Theme Scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #444444; /* Dark theme thumb color */
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: #1a1a1a; /* Dark theme track color */
+}
