@@ -57,7 +57,7 @@ const Search = () => {
         {!isLoading && !isError && searchResults && (
           <div>
             {searchResults.tasks && searchResults.tasks?.length > 0 && (
-              <h2 className="mb-4 mt-8 text-xl font-bold">Tasks</h2>
+              <h2 className="mb-4 mt-8 text-xl font-bold dark:text-white">Tasks</h2>
             )}
             {searchResults.tasks?.map((task) => (
               <div key={task.id} className="mb-6">
