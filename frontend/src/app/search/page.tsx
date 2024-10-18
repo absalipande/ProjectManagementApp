@@ -49,15 +49,24 @@ const Search = () => {
         )}
 
         {isError && (
-          <div className="py-4 text-center font-semibold text-red-500">
-            An error occurred while fetching search results.
+          <div className="mt-10 flex flex-col items-center justify-center py-4">
+            <p className="mb-2 text-center font-semibold text-zinc-500 dark:text-zinc-500">
+              Nothing to see here
+            </p>
+            <img
+              src="/frog-waiting.png"
+              alt="Error"
+              className="h-64 w-64 object-cover"
+            />
           </div>
         )}
 
         {!isLoading && !isError && searchResults && (
           <div>
             {searchResults.tasks && searchResults.tasks?.length > 0 && (
-              <h2 className="mb-4 mt-8 text-xl font-bold dark:text-white">Tasks</h2>
+              <h2 className="mb-4 mt-8 text-xl font-bold dark:text-white">
+                Tasks
+              </h2>
             )}
             {searchResults.tasks?.map((task) => (
               <div key={task.id} className="mb-6">

@@ -26,7 +26,7 @@ const ListView = ({ id, setIsModalNewTaskOpen }: Props) => {
   if (error)
     return (
       <div className="flex flex-col items-center justify-center mt-10 py-4">
-        <p className="mb-2 text-center font-semibold text-zinc-500 dark:text-white">
+        <p className="mb-2 text-center font-semibold text-zinc-500 dark:text-zinc-500">
           Nothing to see here
         </p>
         <img

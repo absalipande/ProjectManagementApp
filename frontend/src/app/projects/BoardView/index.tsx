@@ -55,7 +55,7 @@ const BoardView = ({ id, setIsModalNewTaskOpen }: BoardProps) => {
   if (error)
     return (
       <div className="mt-10 flex flex-col items-center justify-center py-4">
-        <p className="mb-2 text-center font-semibold text-zinc-500 dark:text-white">
+        <p className="mb-2 text-center font-semibold text-zinc-500 dark:text-zinc-500">
           Nothing to see here
         </p>
         <img
