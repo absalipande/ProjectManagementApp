@@ -54,8 +54,15 @@ const BoardView = ({ id, setIsModalNewTaskOpen }: BoardProps) => {
 
   if (error)
     return (
-      <div className="py-4 text-center font-semibold text-red-500">
-        An error occurred while fetching tasks
+      <div className="mt-10 flex flex-col items-center justify-center py-4">
+        <p className="mb-2 text-center font-semibold text-zinc-500 dark:text-white">
+          Nothing to see here
+        </p>
+        <img
+          src="/frog-waiting.png"
+          alt="Error"
+          className="h-64 w-64 object-cover"
+        />
       </div>
     );
 
