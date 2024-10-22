@@ -63,6 +63,21 @@ const Search = () => {
 
         {!isLoading && !isError && searchResults && (
           <div>
+            {!searchResults.tasks?.length &&
+              !searchResults.projects?.length &&
+              !searchResults.users?.length && (
+                <div className="mt-10 flex flex-col items-center justify-center py-4">
+                  <p className="mb-2 text-center font-semibold text-zinc-500 dark:text-zinc-500">
+                    No results found.
+                  </p>
+                  <img
+                    src="/frog-waiting.png"
+                    alt="No Data"
+                    className="h-64 w-64 object-cover"
+                  />
+                </div>
+              )}
+
             {searchResults.tasks && searchResults.tasks?.length > 0 && (
               <h2 className="mb-4 mt-8 text-xl font-bold dark:text-white">
                 Tasks
