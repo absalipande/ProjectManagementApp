@@ -16,12 +16,24 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Cell,
   Legend,
+  Pie,
+  PieChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
+
+const taskColumns: GridColDef[] = [
+  { field: "title", headerName: "Title", width: 200 },
+  { field: "status", headerName: "Status", width: 150 },
+  { field: "priority", headerName: "Priority", width: 150 },
+  { field: "dueDate", headerName: "Due Date", width: 150 },
+];
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
@@ -116,24 +128,51 @@ const HomePage = () => {
               <XAxis dataKey="name" stroke={chartColors.text} />
               <YAxis stroke={chartColors.text} />
               <Tooltip
-                contentStyle={{ width: "min-content", height: "min-content" }}
+                contentStyle={{
+                  width: "min-content",
+                  height: "min-content",
+                }}
               />
               <Legend />
               <Bar dataKey="count" fill={chartColors.bar} />
             </BarChart>
           </ResponsiveContainer>
         </div>
-
         <div className="rounded-lg bg-white p-4 shadow dark:bg-dark-secondary">
           <h3 className="mb-4 text-lg font-semibold dark:text-white">
             Project Status
           </h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie dataKey="count" data={projectStatus} fill="#82ca9d" label>
+                {projectStatus.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
-
         <div className="rounded-lg bg-white p-4 shadow dark:bg-dark-secondary md:col-span-2">
           <h3 className="mb-4 text-lg font-semibold dark:text-white">
             Your Tasks
           </h3>
+          <div style={{ height: 400, width: "100%" }}>
+            <DataGrid
+              rows={tasks}
+              columns={taskColumns}
+              checkboxSelection
+              loading={tasksLoading}
+              getRowClassName={() => "data-grid-row"}
+              getCellClassName={() => "data-grid-cell"}
+              className={dataGridClassNames}
+              sx={dataGridSxStyles(isDarkMode)}
+            />
+          </div>
         </div>
       </div>
     </div>
