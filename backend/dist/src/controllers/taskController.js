@@ -26,10 +26,10 @@ const getTasks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 attachments: true,
             },
         });
-        res.status(200).json(tasks);
+        res.json(tasks);
     }
     catch (error) {
-        res.status(500).json({ message: `An error occurred while fetching tasks: ${error.message}` });
+        res.status(500).json({ message: `Error retrieving tasks: ${error.message}` });
     }
 });
 exports.getTasks = getTasks;
@@ -54,7 +54,7 @@ const createTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(201).json(newTask);
     }
     catch (error) {
-        res.status(500).json({ message: `An error occurred while creating a task: ${error.message}` });
+        res.status(500).json({ message: `Error creating a task: ${error.message}` });
     }
 });
 exports.createTask = createTask;
@@ -73,7 +73,7 @@ const updateTaskStatus = (req, res) => __awaiter(void 0, void 0, void 0, functio
         res.json(updatedTask);
     }
     catch (error) {
-        res.status(500).json({ message: `An error occurred while updating task status: ${error.message}` });
+        res.status(500).json({ message: `Error updating task: ${error.message}` });
     }
 });
 exports.updateTaskStatus = updateTaskStatus;

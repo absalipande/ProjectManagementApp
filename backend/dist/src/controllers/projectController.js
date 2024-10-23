@@ -15,10 +15,10 @@ const prisma = new client_1.PrismaClient();
 const getProjects = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const projects = yield prisma.project.findMany();
-        res.status(200).json(projects);
+        res.json(projects);
     }
     catch (error) {
-        res.status(500).json({ message: `An error occurred while fetching projects: ${error.message}` });
+        res.status(500).json({ message: `Error retrieving projects: ${error.message}` });
     }
 });
 exports.getProjects = getProjects;
@@ -36,7 +36,7 @@ const createProject = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(201).json(newProject);
     }
     catch (error) {
-        res.status(500).json({ message: `An error occurred while creating a project: ${error.message}` });
+        res.status(500).json({ message: `Error creating a project: ${error.message}` });
     }
 });
 exports.createProject = createProject;
