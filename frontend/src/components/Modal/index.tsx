@@ -20,8 +20,8 @@ const Modal = ({ children, isOpen, onClose, name }: Props) => {
           name={name}
           buttonComponent={
             <button
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-primary text-white hover:bg-blue-600"
-              onClick={onClose}
+            className="flex h-7 w-7 items-center justify-center rounded-full text-black hover:bg-gray-200 dark:text-white dark:hover:bg-gray-400"
+            onClick={onClose}
             >
               <X size={18} />
             </button>

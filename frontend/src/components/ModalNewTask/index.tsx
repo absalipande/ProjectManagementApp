@@ -49,7 +49,7 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
   const isFormValid = () => {
     return title && authorUserId && (id !== null || projectId);
   };
-  
+
   const selectStyles =
     "mb-4 block w-full rounded border border-gray-300 px-3 py-2 dark:border-dark-tertiary dark:bg-dark-tertiary dark:text-white dark:focus:outline-none";
 
@@ -154,7 +154,7 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
         )}
         <button
           type="submit"
-          className={`focus-offset-2 mt-4 flex w-full justify-center rounded-md border border-transparent bg-blue-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+          className={`focus-offset-2 mt-4 flex w-full justify-center rounded-md border border-transparent bg-gray-800 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 ${
             !isFormValid() || isLoading ? "cursor-not-allowed opacity-50" : ""
           }`}
           disabled={!isFormValid() || isLoading}

@@ -5,6 +5,7 @@ import React from "react";
 
 type Props = {
   task: Task;
+  className?: string;
 };
 
 const TaskCard = ({ task }: Props) => {
